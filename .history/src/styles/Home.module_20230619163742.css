@@ -1,0 +1,131 @@
+.main {
+  margin: 0 auto;
+  color: #93cef5;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.first_cont {
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 16px;
+  padding: 64px 20px 35px 20px;
+  text-align: center;
+  background-image: url(../assets/home/mobile\ background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: -80px;
+}
+
+.first_cont h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.first_cont p {
+  font-size: 14px;
+}
+
+.first_cont span {
+  color: #fbff2b;
+}
+
+.second_sect {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 20px 170px 20px;
+  background-image: url(../assets//home/second_section_background_icon.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: -50px;
+  background-position-x: -20px;
+}
+
+.second_sect_Image {
+  width: 259px;
+  height: auto;
+}
+
+.second_sect img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.second_sect_content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.second_sect_content h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.second_sect_content p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+
+
+@media screen and (min-width: 81px) {
+  .first_cont {
+    position: relative;
+    padding: 95px 228px 55px 228px;
+    text-align: center;
+    background-image: url(../assets/home/background.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-position-y: -80px;
+  }
+
+  .first_cont h1 {
+    font-size: 64px;
+  }
+
+  .first_cont p {
+    font-size: 20px;
+  }
+
+  .second_sect {
+    flex-direction: row;
+    gap: 137px;
+    padding: 20px 126px 179px 126px;
+  }
+
+  /* .second_sect_Image {
+    max-width: 1482px !important;
+    height: 507px;
+  } */
+
+  .second_sect img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .second_sect_content {
+    max-width: 572px;
+    gap: 19px;
+    justify-self: right;
+  }
+
+  .second_sect_content h2 {
+    font-size: 58px;
+  }
+
+  .second_sect_content p {
+    font-size: 20px;
+  }
+}
