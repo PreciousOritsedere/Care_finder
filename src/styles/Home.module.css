@@ -76,6 +76,115 @@
   font-weight: 400;
 }
 
+.third_sect {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  gap: 32px;
+  padding: 24px 16px;
+  background-color: #ffffff;
+  background-image: url(../assets/home/third_section_bg_icons.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position-y: 40px;
+  background-position-x: -20px;
+}
+
+.third_sect h2 {
+  color: #207dbb;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.third_sect p {
+  color: #52a8e0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.hospital_image {
+  max-width: 265px;
+  height: auto;
+}
+
+.hospital_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.third_sect_sub {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.third_sect_content {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.third_sect button {
+  width: 60%;
+  padding: 12px 32px;
+  background-color: #005792;
+  color: #fbff2b;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fourth_sect {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 86px 20px 72px 20px;
+}
+
+.fourth_sect h1 {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.fourth_sect_sub {
+  display: grid;
+  grid-template-rows: repeat(autofit, minmax(200px, 1fr));
+  justify-content: center;
+  gap: 3px;
+}
+
+.fourth_sect_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 29px 64px;
+  border: 1px solid #93CEF5;
+  border-radius: 2px;
+}
+
+.fourth_sect_box h3 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.fourth_sect_box p {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.fourth_sect_box_content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 
 
 
@@ -101,14 +210,16 @@
 
   .second_sect {
     flex-direction: row;
+    align-items: unset;
     gap: 137px;
-    padding: 20px 126px 179px 126px;
+    padding: 30px 130px 100px 130px;
   }
 
-  /* .second_sect_Image {
-    max-width: 1482px !important;
+  .second_sect_Image {
+    max-width: 482px !important;
+    width: 100%;
     height: 507px;
-  } */
+  }
 
   .second_sect img {
     width: 100%;
@@ -117,8 +228,10 @@
 
   .second_sect_content {
     max-width: 572px;
+    width: 100%;
     gap: 19px;
     justify-self: right;
+    line-height: 1;
   }
 
   .second_sect_content h2 {
@@ -127,5 +240,39 @@
 
   .second_sect_content p {
     font-size: 20px;
+  }
+
+  .third_sect {
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 51px;
+    padding: 110px 100px 168px 100px;
+    background-color: #ffffff;
+    line-height: 1;
+  }
+
+  .hospital_image {
+    max-width: 570px;
+    height: auto;
+  }
+
+  .hospital_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .third_sect h2 {
+    font-size: 58px;
+  }
+
+  .third_sect p {
+    font-size: 20px;
+  }
+
+  .third_sect_content {
+    max-width: 571px;
+    width: 100%;
   }
 }
