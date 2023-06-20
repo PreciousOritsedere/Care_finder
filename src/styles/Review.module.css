@@ -1,0 +1,154 @@
+.cont {
+  padding: 37px 16px 22px 16px;
+  background-color: #ffffff2e;
+  align-items: flex-start;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #edf9fc;
+}
+
+.heading p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.carousel_cont {
+  display: flex;
+  flex-direction: row;
+  gap: 21px;
+  padding: 50px 0 24px 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  /* overflow-x: scroll; */
+}
+
+.carousel_boxes {
+  flex-shrink: 0;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 42px 20px 42px 20px;
+  background-color: #ffffff3d;
+  color: #ffffff;
+  border: 0.6px solid #ffffff;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.user_details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user_image {
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+}
+
+.user_image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user_name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user_name p,
+.rating p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.rate_cont {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fbff2b;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #edf9fc;
+}
+
+@media screen and (min-width: 768px) {
+  .cont {
+    padding: 105px 0 120px 132px;
+  }
+
+  .heading h2 {
+    font-size: 64px;
+    font-weight: 600;
+  }
+
+  .heading p {
+    font-size: 24px;
+  }
+
+  .carousel_cont {
+    gap: 32px;
+    padding: 91px 0 68px 0;
+  }
+
+  .carousel_boxes {
+    flex-shrink: 0;
+    max-width: 487px;
+    gap: 16px;
+    padding: 64px 32px;
+    border-radius: 3px;
+    font-size: 18px;
+  }
+
+  .user_details {
+    gap: 13px;
+  }
+
+  .user_image {
+    width: 82px;
+    height: 82px;
+  }
+
+  .user_name {
+    gap: 3px;
+    font-size: 32px;
+  }
+
+  .user_name p,
+  .rating p {
+    font-size: 24px;
+  }
+
+  .rate_cont {
+    gap: 11px;
+    color: #fbff2b;
+    font-size: 24px;
+  }
+}

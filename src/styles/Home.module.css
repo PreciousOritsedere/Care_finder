@@ -164,11 +164,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  /* justify-content: center; */
   gap: 22px;
   padding: 29px 40px;
-  background-color: #669ABE;
+  background-color: #ffffff2e;
   color: #ffffff;
-  border: 1px solid #93CEF5;
+  border: 1px solid #93cef5;
   border-radius: 2px;
 }
 
@@ -187,7 +189,6 @@
   align-items: center;
   gap: 5px;
 }
-
 
 
 

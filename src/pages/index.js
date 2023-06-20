@@ -2,10 +2,12 @@ import Image from "next/image";
 import Layout from "@/components/Layout";
 import styles from "../styles/Home.module.css";
 import SearchBar from "@/components/SearchBar";
+import Review from "@/components/Review";
 import DoctorImage from "../assets/home/female_doctor.svg";
 import HospitalImage from "../assets/home/hospitalImage.svg";
 import Background_icons from "@/assets/home/background_icons.svg";
 import Pry_HealthCare from "../assets/home/primary healthcare icon.svg";
+import Drugs_icon from "../assets/home/drugs.svg";
 import Right_arrow from "../assets/home/right arrow.svg";
 import Dentist from "../assets/home/dentist.svg";
 
@@ -77,9 +79,9 @@ export default function Home() {
             </div>
 
             <div className={styles.fourth_sect_box}>
-              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <Image src={Drugs_icon} alt="drugs icon" />
               <div>
-                <h3>Primary care</h3>
+                <h3>Drugs</h3>
                 <div className={styles.fourth_sect_box_content}>
                   <p>Find the nearest centre</p>
                   <Image src={Right_arrow} alt="right arrow" />
@@ -99,9 +101,9 @@ export default function Home() {
             </div>
 
             <div className={styles.fourth_sect_box}>
-              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <Image src={Drugs_icon} alt="drugs icon" />
               <div>
-                <h3>Primary care</h3>
+                <h3>Drugs</h3>
                 <div className={styles.fourth_sect_box_content}>
                   <p>Find the nearest centre</p>
                   <Image src={Right_arrow} alt="right arrow" />
@@ -121,9 +123,9 @@ export default function Home() {
             </div>
 
             <div className={styles.fourth_sect_box}>
-              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <Image src={Drugs_icon} alt="drugs icon" />
               <div>
-                <h3>Primary care</h3>
+                <h3>Drugs</h3>
                 <div className={styles.fourth_sect_box_content}>
                   <p>Find the nearest centre</p>
                   <Image src={Right_arrow} alt="right arrow" />
@@ -143,9 +145,9 @@ export default function Home() {
             </div>
 
             <div className={styles.fourth_sect_box}>
-              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <Image src={Drugs_icon} alt="drugs icon" />
               <div>
-                <h3>Primary care</h3>
+                <h3>Drugs</h3>
                 <div className={styles.fourth_sect_box_content}>
                   <p>Find the nearest centre</p>
                   <Image src={Right_arrow} alt="right arrow" />
@@ -154,6 +156,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <Review />
 
         {/* <Location_search /> */}
       </main>
