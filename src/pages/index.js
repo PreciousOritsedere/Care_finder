@@ -75,6 +75,83 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <div className={styles.fourth_sect_box}>
+              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <div>
+                <h3>Primary care</h3>
+                <div className={styles.fourth_sect_box_content}>
+                  <p>Find the nearest centre</p>
+                  <Image src={Right_arrow} alt="right arrow" />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.fourth_sect_box}>
+              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <div>
+                <h3>Primary care</h3>
+                <div className={styles.fourth_sect_box_content}>
+                  <p>Find the nearest centre</p>
+                  <Image src={Right_arrow} alt="right arrow" />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.fourth_sect_box}>
+              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <div>
+                <h3>Primary care</h3>
+                <div className={styles.fourth_sect_box_content}>
+                  <p>Find the nearest centre</p>
+                  <Image src={Right_arrow} alt="right arrow" />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.fourth_sect_box}>
+              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <div>
+                <h3>Primary care</h3>
+                <div className={styles.fourth_sect_box_content}>
+                  <p>Find the nearest centre</p>
+                  <Image src={Right_arrow} alt="right arrow" />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.fourth_sect_box}>
+              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <div>
+                <h3>Primary care</h3>
+                <div className={styles.fourth_sect_box_content}>
+                  <p>Find the nearest centre</p>
+                  <Image src={Right_arrow} alt="right arrow" />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.fourth_sect_box}>
+              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <div>
+                <h3>Primary care</h3>
+                <div className={styles.fourth_sect_box_content}>
+                  <p>Find the nearest centre</p>
+                  <Image src={Right_arrow} alt="right arrow" />
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.fourth_sect_box}>
+              <Image src={Pry_HealthCare} alt="primary healthcare icon" />
+              <div>
+                <h3>Primary care</h3>
+                <div className={styles.fourth_sect_box_content}>
+                  <p>Find the nearest centre</p>
+                  <Image src={Right_arrow} alt="right arrow" />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
