@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function Layout({ title, keywords, description, children }) {
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function Layout({ title, keywords, description, children }) {
       </Head>
       <Navbar />
       <div>{children}</div>
+      <Footer />
     </div>
   );
 }
