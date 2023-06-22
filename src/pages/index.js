@@ -3,13 +3,13 @@ import Layout from "@/components/Layout";
 import styles from "../styles/Home.module.css";
 import SearchBar from "@/components/SearchBar";
 import Review from "@/components/Review";
-import DoctorImage from "../assets/home/female_doctor.svg";
-import HospitalImage from "../assets/home/hospitalImage.svg";
-import Background_icons from "@/assets/home/background_icons.svg";
-import Pry_HealthCare from "../assets/home/primary healthcare icon.svg";
-import Drugs_icon from "../assets/home/drugs.svg";
-import Right_arrow from "../assets/home/right arrow.svg";
-import Dentist from "../assets/home/dentist.svg";
+import DoctorImage from "../../public/assets/home/female_doctor.svg";
+import HospitalImage from "../../public/assets/home/hospitalImage.svg";
+import Background_icons from "../../public/assets/home/background_icons.svg";
+import Pry_HealthCare from "../../public/assets/home/primary healthcare icon.svg";
+import Drugs_icon from "../../public/assets/home/drugs.svg";
+import Right_arrow from "../../public/assets/home/right arrow.svg";
+import Dentist from "../../public/assets/home/dentist.svg";
 
 export default function Home() {
   return (

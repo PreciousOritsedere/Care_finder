@@ -3,9 +3,9 @@ import React from "react";
 import { useState } from "react";
 import styles from "../styles/Navbar.module.css";
 import Image from "next/image";
-import Logo from "@/assets/nav/logo.svg";
-import Hamburger from "@/assets/nav/hamburger.svg";
-import Cancel from "@/assets/nav/cancel.svg";
+import Logo from "../../public/assets/nav/logo.svg";
+import Hamburger from "../../public/assets/nav/hamburger.svg";
+import Cancel from "../../public/assets/nav/cancel.svg";
 import NavMenu from "../components/NavMenu";
 import Link from "next/link";
 
@@ -46,7 +46,9 @@ function Navbar() {
           <li>Blog</li>
         </ul>
         <div className={styles.nav_signup}>
-          <p>I have an health care </p>
+          <Link href="/health_center/admin_signup_one">
+            <p>I have an health care </p>
+          </Link>
           <button>Sign up</button>
         </div>
       </div>

@@ -61,6 +61,10 @@
   /* width: 100%; */
 }
 
+.nav_signup a {
+  color: #fbff2b;
+}
+
 .nav_signup button {
   padding: 18px 32px;
   background-color: #fbff2b;

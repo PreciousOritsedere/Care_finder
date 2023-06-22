@@ -14,7 +14,7 @@
   gap: 16px;
   padding: 64px 20px 35px 20px;
   text-align: center;
-  background-image: url(../assets/home/mobile\ background.png);
+  background-image: url(../../public/assets/home/mobile\ background.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -41,7 +41,7 @@
   justify-content: center;
   gap: 32px;
   padding: 0 20px 170px 20px;
-  background-image: url(../assets//home/second_section_background_icon.svg);
+  background-image: url(../../public/assets/home/second_section_background_icon.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -83,7 +83,7 @@
   gap: 32px;
   padding: 24px 16px;
   background-color: #ffffff;
-  background-image: url(../assets/home/third_section_bg_icons.svg);
+  background-image: url(../../public/assets/home/third_section_bg_icons.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -197,7 +197,7 @@
     position: relative;
     padding: 95px 228px 55px 228px;
     text-align: center;
-    background-image: url(../assets/home/background.svg);
+    background-image: url(../../public/assets/home/background.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

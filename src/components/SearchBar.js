@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import SearchIcon from "../assets/search/search_icon.svg";
+import SearchIcon from "../../public/assets/search/search_icon.svg";
 import styles from "../styles/SearchBar.module.css";
 
 function SearchBar() {

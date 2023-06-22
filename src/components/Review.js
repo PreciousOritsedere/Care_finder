@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/Review.module.css";
-import UserImage from "../assets/home/black woman.svg";
-import Stars from "../assets/home/Rating stars.svg";
+import UserImage from "../../public/assets/home/black woman.svg";
+import Stars from "../../public/assets/home/Rating stars.svg";
 
 function Review() {
   return (
