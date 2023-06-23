@@ -89,15 +89,19 @@ export default function admin_signup_one() {
               />
             </div>
 
-            <Button
-              //   onClick={someFunction}
-              text="Create Account"
-              //   className="custom-class"
-            />
+            <div className={styles.button_cont}>
+              <Link href="/health_center/welcome">
+                <Button
+                  //   onClick={someFunction}
+                  text="Create Account"
+                  //   className="custom-class"
+                />
+              </Link>
+            </div>
           </form>
 
           <div className={styles.agreement}>
-            <Input type="checkbox" />
+            <input type="checkbox"  />
             <p>
               I agree to the <span>Terms of use</span> and{" "}
               <span>Privacy policy</span>
