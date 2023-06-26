@@ -46,7 +46,7 @@ function Navbar() {
           <li>Blog</li>
         </ul>
         <div className={styles.nav_signup}>
-          <Link href="/health_center/admin_signup_one">
+          <Link href="/health_center/signup_one">
             <p>I have an health care </p>
           </Link>
           <button>Sign up</button>

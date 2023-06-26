@@ -24,7 +24,7 @@ export default function welcome() {
           </p>
         </div>
 
-        <Link href="/health_center/welcome" className={styles.button_cont}>
+        <Link href="/health_center/signup_two" className={styles.button_cont}>
           <Button
             //   onClick={someFunction}
             text="Continue"
