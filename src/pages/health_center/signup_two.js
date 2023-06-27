@@ -25,61 +25,65 @@ export default function Signup_two() {
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
     router.push({
-      pathname: '/health_center/signup_two',
+      pathname: "/health_center/signup_two",
       query: { tab: tabName },
     });
   };
 
   return (
-    <div className={styles.container}>
-      <aside className={styles.left}>
-        <Image src={Doctor} alt="doctor image" />
-      </aside>
+    <>
+      <div className={styles.container}>
+        <aside className={styles.left}>
+          <Image src={Doctor} alt="doctor image" />
+        </aside>
 
-      <section className={styles.right}>
-        <div
-          className={`${styles.tab} ${
-            activeTab === "admininfo" ? styles.active : ""
-          }`}
-          onClick={() => handleTabClick("admininfo")}
-        >
-          <p>1</p>
-          <div className={styles.tab_name}>
-            <h3>Admin Info </h3>
-            <Image src={Right_Arrow} alt="right arrow" />
-          </div>
-        </div>
+        <section className={styles.right}>
+          <div className={styles.tab_cont}>
+            <div
+              className={`${styles.tab} ${
+                activeTab === "admininfo" ? styles.active : ""
+              }`}
+              onClick={() => handleTabClick("admininfo")}
+            >
+              <p>1</p>
+              <div className={styles.tab_name}>
+                <h3>Admin Info </h3>
+                <Image src={Right_Arrow} alt="right arrow" />
+              </div>
+            </div>
 
-        <div
-          className={`${styles.tab} ${
-            activeTab === "healthcareinfo" ? styles.active : ""
-          }`}
-          onClick={() => handleTabClick("healthcareinfo")}
-        >
-          <p>2</p>
-          <div className={styles.tab_name}>
-            <h3>Health care Info</h3>
-            <Image src={Right_Arrow} alt="right arrow" />
-          </div>
-        </div>
+            <div
+              className={`${styles.tab} ${
+                activeTab === "healthcareinfo" ? styles.active : ""
+              }`}
+              onClick={() => handleTabClick("healthcareinfo")}
+            >
+              <p>2</p>
+              <div className={styles.tab_name}>
+                <h3>Health care Info</h3>
+                <Image src={Right_Arrow} alt="right arrow" />
+              </div>
+            </div>
 
-        <div
-          className={`${styles.tab} ${
-            activeTab === "imageinfo" ? styles.active : ""
-          }`}
-          onClick={() => handleTabClick("imageinfo")}
-        >
-          <p>3</p>
-          <div className={styles.tab_name}>
-            <h3>Images</h3>
-            <Image src={Right_Arrow} alt="right arrow" />
+            <div
+              className={`${styles.tab} ${
+                activeTab === "imageinfo" ? styles.active : ""
+              }`}
+              onClick={() => handleTabClick("imageinfo")}
+            >
+              <p>3</p>
+              <div className={styles.tab_name}>
+                <h3>Images</h3>
+                <Image src={Right_Arrow} alt="right arrow" />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-      {/* Conditionally render tab content */}
-      {activeTab === "admininfo" && <AdminInfo />}
-      {activeTab === "healthcareinfo" && <HealthCareInfo />}
-      {activeTab === "imageinfo" && <ImageInfo />}
-    </div>
+          {/* Conditionally render tab content */}
+          {activeTab === "admininfo" && <AdminInfo />}
+          {activeTab === "healthcareinfo" && <HealthCareInfo />}
+          {activeTab === "imageinfo" && <ImageInfo />}
+        </section>
+      </div>
+    </>
   );
 }

@@ -1,0 +1,127 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 50px 16px 36px 16px;
+  font-size: 16px;
+  color: #93cef5;
+}
+
+.container form {
+  max-width: 1440px;
+  width: 100%;
+}
+
+.userImage_cont {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  background-color: #0f83b2;
+  padding: 30px;
+}
+
+.userImage_cont img {
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  object-fit: contain;
+}
+
+.camIcon_cont {
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  padding: 8px;
+  background-color: #fbff2b;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 33px;
+}
+
+.form_input {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 3px;
+  color: #828282;
+  font-size: 14px;
+}
+
+.form_input input::placeholder {
+  font-size: 14px;
+  color: #828282;
+}
+
+.add_new {
+  max-width: 1440px;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #fbff2b;
+  border-radius: 3px;
+  margin-top: 24px;
+  padding: 12px 8px;
+  font-size: 14px;
+  color: #fbff2b;
+}
+
+.link_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 78px;
+}
+
+.button_cont {
+  width: 177px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbff2b;
+  border-radius: 3px;
+  /* padding: 12px 8px; */
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 54px 128px 80px 128px;
+  }
+
+  .form {
+    gap: 23px;
+  }
+
+  .form_input {
+    font-size: 16px;
+  }
+
+  .form_input input::placeholder {
+    font-size: 16px;
+  }
+
+  .add_new {
+    margin-top: 41px;
+    font-size: 16px;
+  }
+
+  .link_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+  }
+
+  .button_cont {
+    width: 177px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbff2b;
+    border-radius: 3px;
+    /* padding: 12px 8px; */
+  }
+}
