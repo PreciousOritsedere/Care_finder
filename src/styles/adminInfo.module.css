@@ -18,14 +18,14 @@
   height: 120px;
   border-radius: 60px;
   background-color: #0f83b2;
-  padding: 30px;
+  /* padding: 30px; */
 }
 
 .userImage_cont img {
   width: 100%;
   height: 100%;
   border-radius: 60px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .camIcon_cont {
@@ -46,13 +46,13 @@
   margin-top: 33px;
 }
 
-.form_input {
+/* .form_input {
   background-color: #ffffff;
   padding: 12px 16px;
   border-radius: 3px;
   color: #828282;
   font-size: 14px;
-}
+} */
 
 .form_input input::placeholder {
   font-size: 14px;

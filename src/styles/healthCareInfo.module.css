@@ -1,0 +1,147 @@
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 30px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  color: #93cef5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #828282;
+}
+
+.select {
+    max-width: 1440px;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 3px;
+    color: #828282;
+    font-size: 14px;
+}
+
+.select:focus {
+    outline: none;
+}
+
+.textare_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.textare_cont span {
+  font-size: 12px;
+  font-weight: 400;
+  color: #93cef5;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.small_inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.file_input_cont {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-size: 14px;
+  color: #93cef5;
+}
+
+.file_input_label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add_label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file_input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file_input button {
+  background-color: #93cef5;
+  color: #267ea1;
+  border: none;
+  border-radius: 3px;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.file_upload {
+  max-width: 1440px;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.file_upload input[type="file"] {
+  opacity: 0;
+  max-width: 1440px;
+  width: 80%;
+}
+
+.link_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 34px;
+}
+
+.button_cont {
+  width: 177px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbff2b;
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 54px 124px 56px 124px;
+    gap: 16px;
+  }
+
+  .form {
+    gap: 28px;
+    font-size: 16px;
+  }
+
+  .textare_cont span {
+    font-size: 16px;
+  }
+
+  .small_inputs {
+    gap: 23px;
+  }
+
+  .link_wrapper {
+    margin-top: 40px;
+  }
+
+  .file_input_cont {
+    font-size: 16px;
+  }
+}

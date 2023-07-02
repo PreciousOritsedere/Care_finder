@@ -80,6 +80,19 @@
   cursor: pointer;
 }
 
+.disabled {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border-radius: 3px;
+  padding: 6px 32px;
+  background-color: #4B8973;
+  color: #93CEF5;
+  cursor: not-allowed;
+}
+
 .agreement {
   display: flex;
   align-items: center;

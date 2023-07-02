@@ -1,3 +1,4 @@
+import { useFormData } from "@/context/FormData/FormDataContext";
 import styles from "../../styles/Welcome.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +7,8 @@ import Hexagon from "../../../public/assets/register/hexagon.svg";
 import Logo from "../../../public/assets/register/logo.svg";
 import Right_Arrow from "../../../public/assets/register/right arrow.svg";
 
-export default function welcome() {
+export default function Welcome() {
+  const { isSignupOneCompleted } = useFormData();
   return (
     <div className={styles.container}>
       <aside className={styles.left}>
@@ -24,14 +26,18 @@ export default function welcome() {
           </p>
         </div>
 
-        <Link href="/health_center/signup_two" className={styles.button_cont}>
-          <Button
-            //   onClick={someFunction}
-            text="Continue"
-            //   className="custom-class"
-          />
-          <Image src={Right_Arrow} alt="right arrow" />
-        </Link>
+        {isSignupOneCompleted ? (
+          <Link href="/health_center/signup_two" className={styles.button_cont}>
+            <Button
+              //   onClick={someFunction}
+              text="Continue"
+              //   className="custom-class"
+            />
+            <Image src={Right_Arrow} alt="right arrow" />
+          </Link>
+        ) : (
+          <p>Please fill out the registration form first!</p>
+        )}
       </section>
     </div>
   );
