@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useFormData } from "@/context/FormData/FormDataContext";
 import Image from "next/image";
 import Link from "next/link";
+import { storage } from "../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import style from "../styles/adminInfo.module.css";
 import UserIcon from "../../public/assets/register/user icon.svg";
 import Camera from "../../public/assets/register/camera.svg";
@@ -12,7 +14,7 @@ import Button from "./common/Button";
 export default function AdminInfo() {
   const { formData, updateFormData } = useFormData();
   const [formState, setFormState] = useState({});
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(UserIcon);
   const fileInputRef = useRef();
 
   const isFormValid = Object.values(formData).every((value) => value !== "");
@@ -27,26 +29,34 @@ export default function AdminInfo() {
   };
 
   const handleImageUpload = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        setImage(e.target.result);
-      };
-      reader.onerror = error => {
-        console.log('Error: ', error);
-      };
-      reader.readAsDataURL(e.target.files[0]);
-      const newFormState = { ...formData, image: e.target.files[0] };
-      setFormState(newFormState);
-      updateFormData(newFormState);
-    }
+    const file = e.target.files[0];
+    const storageRef = ref(storage, `images/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Listen for state changes, errors, and completion of the upload
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+      },
+      (error) => {
+        console.error("Error uploading image: ", error);
+      },
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          setImage(downloadURL);
+        });
+      }
+    );
   };
 
   const openFileInput = () => {
     fileInputRef.current.click(); // open file input when the hidden file input is clicked
   };
-
-
 
   return (
     <section className={style.container}>
@@ -54,7 +64,7 @@ export default function AdminInfo() {
 
       <form>
         <div className={style.userImage_cont}>
-          <img src={image || UserIcon} alt="user icon" />
+          <Image src={image} alt="user icon" />
           <div className={style.camIcon_cont} onClick={openFileInput}>
             <Image src={Camera} alt="camera icon" />
             <input
