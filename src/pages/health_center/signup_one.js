@@ -40,7 +40,6 @@ export default function Signup_one() {
   useEffect(() => {
     console.log(formData);
   }, [formData]);
-  
 
   const handleSelectChange = (e) => {
     setFormFields((prevState) => ({
@@ -58,6 +57,17 @@ export default function Signup_one() {
 
     updateFormData(formFields);
     router.push("/health_center/welcome");
+
+    // Clear form fields after successful submission
+    setFormFields({
+      email: "",
+      healthcareName: "",
+      healthcareType: "",
+      password: "",
+      confirmPassword: "",
+    });
+
+    console.log("Form fields have been cleared");
   };
 
   // form validation

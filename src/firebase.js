@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage } from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,7 +20,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const firestore = getFirestore(app);
 const storage = getStorage(app);
 
-export { app, analytics, storage };
+let analytics;
+if (typeof window !== "undefined") {
+  const { getAnalytics } = require("firebase/analytics");
+  analytics = getAnalytics(app);
+}
+
+export { app, analytics, firestore, storage };
