@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -43,7 +43,11 @@ export default function HealthCareInfo() {
   const [formState, setFormState] = useState(initialFormState);
   const [formErrors, setFormErrors] = useState(initialErrorState);
   const [isFormValid, setIsFormValid] = useState(false);
-  const [key, setKey] = useState(Math.random().toString());
+  const [fileInputs, setFileInputs] = useState([
+    { key: Math.random().toString(), file: null },
+  ]);
+
+  const inputFileRef = useRef();
 
   // Define a function to validate the form
   const validateForm = () => {
@@ -84,6 +88,29 @@ export default function HealthCareInfo() {
       ...prevState,
       healthcareType: e.target.value,
     }));
+  };
+
+  // Function to add a new file input
+  const addFileInput = () => {
+    setFileInputs((prevState) => [
+      ...prevState,
+      { key: Math.random().toString(), file: null },
+    ]);
+  };
+
+  // Function to handle file input changes
+  const handleFileChange = (e, index) => {
+    const file = e.target.files[0];
+    setFileInputs((prevState) => {
+      const newFileInputs = [...prevState];
+      newFileInputs[index].file = file;
+      newFileInputs[index].name = file.name;
+      return newFileInputs;
+    });
+  };
+
+  const handleSelectFileBtn = () => {
+    inputFileRef.current.click();
   };
 
   const optionList = [
@@ -178,24 +205,28 @@ export default function HealthCareInfo() {
           onChange={handleInputChange}
         />
 
-        <div className={styles.file_input_cont}>
-          <div className={styles.file_input_label}>
-            <p>Documents</p>
-            <div
-              className={styles.add_label}
-              onClick={() => setKey(Math.random().toString())}
-            >
-              <Image src={Add} alt="add icon" />
-              <p>Add new doc</p>
+        {fileInputs.map((file_input, index) => (
+          <div className={styles.file_input_cont} key={file_input.key}>
+            <div className={styles.file_input_label}>
+              <p>Documents</p>
+              <div className={styles.add_label} onClick={addFileInput}>
+                <Image src={Add} alt="add icon" />
+                <p>Add new doc</p>
+              </div>
+            </div>
+            <div className={styles.file_input}>
+              <div className={styles.file_upload}>
+                <Input
+                  type="file"
+                  onChange={(e) => handleFileChange(e, index)}
+                />
+              </div>
+              <button className={styles.file_btn} onClick={handleSelectFileBtn}>
+                Select File
+              </button>
             </div>
           </div>
-          <div className={styles.file_input} key={key}>
-            <div className={styles.file_upload}>
-              <Input type="file" />
-            </div>
-            <button className={styles.file_btn}>Select File</button>
-          </div>
-        </div>
+        ))}
         <div className={styles.link_wrapper}>
           <Link
             href="/health_center/signup_three"
