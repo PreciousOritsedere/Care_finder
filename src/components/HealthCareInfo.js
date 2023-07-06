@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { useFormData } from "../context/FormData/FormDataContext";
 import axios from "axios";
@@ -54,6 +55,9 @@ export default function HealthCareInfo() {
 
   const inputFileRefs = useRef([]);
 
+  const router = useRouter();
+
+
   // Define a function to validate the form
   const validateForm = () => {
     let isValid = true;
@@ -85,13 +89,20 @@ export default function HealthCareInfo() {
 
   const handleCountryChange = (country) => {
     setSelectedCountry(country);
-    setSelectedState("");
+    setFormState((prevState) => ({
+      ...prevState,
+      country: country,
+    }));
   };
 
   console.log(selectedCountry);
 
   const handleStateChange = (state) => {
     setSelectedState(state);
+    setFormState((prevState) => ({
+      ...prevState,
+      state: state,
+    }));
   };
 
   console.log(selectedState);
@@ -137,7 +148,12 @@ export default function HealthCareInfo() {
 
     try {
       if (isFormValid) {
-        await updateFormData(formState);
+        const completeFormData = {
+          ...formState,
+          files: fileInputs,
+        };
+
+        await updateFormData(completeFormData);
 
         setFormState(initialFormState);
         setSelectedCountry("");
@@ -280,18 +296,15 @@ export default function HealthCareInfo() {
           ))}
         </div>
         <div className={styles.link_wrapper}>
-          <Link
-            href="/health_center/signup_three"
-            className={styles.button_cont}
-          >
+          <div className={styles.button_cont}>
             <Button
-              //   onClick={someFunction}
+              onClick={handleSubmit}
               text="Continue"
               disabled={!isFormValid}
               //   className="custom-class"
             />
             <Image src={Right_Arrow} alt="right arrow" />
-          </Link>
+          </div>
         </div>
       </form>
     </section>
