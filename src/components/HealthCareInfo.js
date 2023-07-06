@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useFormData } from "../context/FormData/FormDataContext";
 import axios from "axios";
 import styles from "../styles/healthCareInfo.module.css";
 import Input from "./common/Input";
@@ -44,10 +45,14 @@ export default function HealthCareInfo() {
   const [formErrors, setFormErrors] = useState(initialErrorState);
   const [isFormValid, setIsFormValid] = useState(false);
   const [fileInputs, setFileInputs] = useState([
-    { key: Math.random().toString(), file: null },
+    { key: Math.random().toString(), file: null, name: "" },
   ]);
 
-  const inputFileRef = useRef();
+  const [fileName, setFileName] = useState("");
+
+  const { updateFormData } = useFormData();
+
+  const inputFileRefs = useRef([]);
 
   // Define a function to validate the form
   const validateForm = () => {
@@ -69,38 +74,48 @@ export default function HealthCareInfo() {
   }, [formState]);
 
   // Define a function to handle form input changes
-  const handleInputChange = (e) => {
+  const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setFormState((prevState) => ({ ...prevState, [name]: value }));
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
+  console.log(formState);
 
   const handleCountryChange = (country) => {
     setSelectedCountry(country);
     setSelectedState("");
   };
 
+  console.log(selectedCountry);
+
   const handleStateChange = (state) => {
     setSelectedState(state);
   };
 
+  console.log(selectedState);
+
   const handleSelectChange = (e) => {
-    setFormFields((prevState) => ({
+    setFormState((prevState) => ({
       ...prevState,
       healthcareType: e.target.value,
     }));
   };
+  console.log(formState);
 
   // Function to add a new file input
   const addFileInput = () => {
     setFileInputs((prevState) => [
       ...prevState,
-      { key: Math.random().toString(), file: null },
+      { key: Math.random().toString(), file: null, name: "" },
     ]);
   };
 
   // Function to handle file input changes
   const handleFileChange = (e, index) => {
     const file = e.target.files[0];
+    // setFileName(file.name);
     setFileInputs((prevState) => {
       const newFileInputs = [...prevState];
       newFileInputs[index].file = file;
@@ -109,8 +124,36 @@ export default function HealthCareInfo() {
     });
   };
 
-  const handleSelectFileBtn = () => {
-    inputFileRef.current.click();
+  const handleSelectFileBtn = (index) => {
+    if (inputFileRefs.current[index]) {
+      inputFileRefs.current[index].click();
+    } else {
+      console.error(`No ref found at index ${index}`);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (isFormValid) {
+        await updateFormData(formState);
+
+        setFormState(initialFormState);
+        setSelectedCountry("");
+        setSelectedState("");
+        setFileInputs([
+          { key: Math.random().toString(), file: null, name: "" },
+        ]);
+
+        router.push({
+          pathname: "/health_center/signup_two",
+          query: { tab: "imageinfo" },
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const optionList = [
@@ -139,7 +182,7 @@ export default function HealthCareInfo() {
           placeholder="Healthcare name"
           name="healthcareName"
           value={formState.healthcareName}
-          onChange={handleInputChange}
+          onChange={handleOnChange}
         />
 
         <Select
@@ -151,11 +194,10 @@ export default function HealthCareInfo() {
 
         <div className={styles.textare_cont}>
           <Textarea
-            type="text"
             placeholder="About Healthcare"
             name="aboutHealthcare"
             value={formState.aboutHealthcare}
-            onChange={handleInputChange}
+            onChange={handleOnChange}
           />
           <span>0/260 Character</span>
         </div>
@@ -166,7 +208,7 @@ export default function HealthCareInfo() {
             placeholder="Reg No.:"
             name="regNo"
             value={formState.regNo}
-            onChange={handleInputChange}
+            onChange={handleOnChange}
           />
           <CountryDropdown
             id="country"
@@ -186,7 +228,7 @@ export default function HealthCareInfo() {
             placeholder="Postal Code"
             name="postalCode"
             value={formState.postalCode}
-            onChange={handleInputChange}
+            onChange={handleOnChange}
           />
         </div>
 
@@ -195,38 +237,48 @@ export default function HealthCareInfo() {
           placeholder="Hospital Address"
           name="healthcareAddress"
           value={formState.healthcareAddress}
-          onChange={handleInputChange}
+          onChange={handleOnChange}
         />
         <Input
           type="text"
           placeholder="Andersonmathew@gmail.com"
           name="healthcareEmail"
           value={formState.healthcareEmail}
-          onChange={handleInputChange}
+          onChange={handleOnChange}
         />
 
-        {fileInputs.map((file_input, index) => (
-          <div className={styles.file_input_cont} key={file_input.key}>
-            <div className={styles.file_input_label}>
-              <p>Documents</p>
-              <div className={styles.add_label} onClick={addFileInput}>
-                <Image src={Add} alt="add icon" />
-                <p>Add new doc</p>
-              </div>
-            </div>
-            <div className={styles.file_input}>
-              <div className={styles.file_upload}>
-                <Input
-                  type="file"
-                  onChange={(e) => handleFileChange(e, index)}
-                />
-              </div>
-              <button className={styles.file_btn} onClick={handleSelectFileBtn}>
-                Select File
-              </button>
+        <div className={styles.file_input_cont}>
+          <div className={styles.file_input_label}>
+            <p>Documents</p>
+            <div className={styles.add_label} onClick={addFileInput}>
+              <Image src={Add} alt="add icon" />
+              <p>Add new doc</p>
             </div>
           </div>
-        ))}
+          {fileInputs.map((input, index) => (
+            <div className={styles.file_input} key={input.key}>
+              <div className={styles.file_upload}>
+                {" "}
+                <p>{input.name && `Successfully uploaded ${input.name}`}</p>
+              </div>
+
+              <div className={styles.file_btn}>
+                <input
+                  type="file"
+                  style={{ display: "none" }}
+                  ref={(el) => (inputFileRefs.current[index] = el)}
+                  onChange={(e) => handleFileChange(e, index)}
+                />
+                <button
+                  type="button"
+                  onClick={() => handleSelectFileBtn(index)}
+                >
+                  Select File
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
         <div className={styles.link_wrapper}>
           <Link
             href="/health_center/signup_three"
