@@ -1,38 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Capstone Project Details
 
-## Getting Started
 
-First, run the development server:
+Carefinder
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Access to healthcare in Nigeria can be very difficult and painstaking. Quite absurd being that the first thing to living is being healthy. Carefinder is a simple tool that aims to help any user find, export, and share hospitals within the region. 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Requirements and Implementation Guide:
+- Hospital Search:
+Carefinder allows users to search for hospitals within their region. Users can input their location or select from a list of nearby cities to find hospitals in their area. The platform will provide a list of hospitals and their respective contact details, including address, phone number, and email.
+- Export Hospitals:
+Carefinder allows users to export the list of hospitals to a CSV file, making it easy to save and share the information. This feature will be implemented using Firebase's built-in file storage.
+- Share Hospitals:
+Carefinder also allows users to share the list of hospitals with others. Users can share the information via email or by generating a shareable link. This feature will be implemented using Firebase's built-in email and link sharing functionalities.
+- User Authentication:
+Carefinder requires admin users to create an account to access the platform's admin features. This feature will be implemented using Firebase's built-in authentication feature, which supports multiple authentication methods, including email/password and social media logins.
+- Markdown Support:
+Carefinder allows admin users to write content (create hospital entries and corresponding details) with markdown. This feature makes it easy for users to format their content, add links, and insert images. The platform will provide a simple text editor that supports markdown syntax.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
