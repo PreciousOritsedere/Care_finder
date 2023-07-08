@@ -12,6 +12,8 @@ import Button from "./common/Button";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import Add from "../../public/assets/register/plus.svg";
 import Right_Arrow from "../../public/assets/register/right arrow.svg";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
 
 const initialFormState = {
   healthcareName: "",
@@ -56,7 +58,6 @@ export default function HealthCareInfo() {
   const inputFileRefs = useRef([]);
 
   const router = useRouter();
-
 
   // Define a function to validate the form
   const validateForm = () => {
@@ -126,13 +127,42 @@ export default function HealthCareInfo() {
   // Function to handle file input changes
   const handleFileChange = (e, index) => {
     const file = e.target.files[0];
-    // setFileName(file.name);
-    setFileInputs((prevState) => {
-      const newFileInputs = [...prevState];
-      newFileInputs[index].file = file;
-      newFileInputs[index].name = file.name;
-      return newFileInputs;
-    });
+    const storage = getStorage();
+
+    // Create a storage reference from our storage service
+    const storageRef = ref(storage, `documents/${file.name}`);
+    console.log("file sent to storage")
+
+    // Start the upload
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    // Listen for state changes, errors, and completion of the upload.
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // You can use this part to report upload progress
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+        console.error("Upload failed:", error);
+      },
+      () => {
+        // Upload completed successfully, now we can get the download URL
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File name:", file.name); // To check the file name
+          console.log("Download URL:", downloadURL); // To check the download URL
+          setFileInputs((prevState) => {
+            const newFileInputs = [...prevState];
+            newFileInputs[index].file = downloadURL; // Use the file URL instead of the file object
+            newFileInputs[index].name = file.name;
+            return newFileInputs;
+          });
+        });
+      }
+    );
   };
 
   const handleSelectFileBtn = (index) => {

@@ -1,11 +1,36 @@
 import Image from "next/image";
-import Link from "next/link";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+import { useFormData } from "@/context/FormData/FormDataContext";
+import { firestore } from "@/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import "firebase/firestore";
 import styles from "../../styles/SignupThree.module.css";
 import Doctor from "../../../public/assets/register/doctor.svg";
 import Done from "../../../public/assets/register/done.svg";
 import Button from "../../components/common/Button";
 
-export default function signup_three() {
+export default function Signup_three() {
+  const router = useRouter();
+  const { formData, updateFormData } = useFormData();
+
+  const handleSubmit = async (e) => {
+    try {
+      console.log("Form submission started");
+      const docRef = await addDoc(collection(firestore, "hospitals"), formData);
+      console.log(`Document written with ID: ${docRef.id}`);
+
+      updateFormData({}); // clear the form data
+      console.log("Form data cleared");
+
+      toast.success("Signup successful!");
+      console.log("Navigating to /profile");
+      router.push("/profile");
+    } catch (error) {
+      console.error("Error writing document: ", error);
+      toast.error("signup failed, please try again later");
+    }
+  };
   return (
     <div className={styles.container}>
       <aside className={styles.left}>
@@ -30,13 +55,14 @@ export default function signup_three() {
           </div>
         </div>
 
-        <Link href="/health_center/signup_three" className={styles.button_cont}>
+        <div className={styles.button_cont}>
           <Button
             //   onClick={someFunction}
+            onClick={handleSubmit}
             text="Continue"
             //   className="custom-class"
           />
-        </Link>
+        </div>
       </section>
     </div>
   );

@@ -1,0 +1,27 @@
+.cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 230px;
+    width: 100%;
+    height: auto;
+    padding: 62px;
+    border-radius: 6px;
+    background-color: #93CEF5;
+    color: #207DBB;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.cont input  {
+    width: 100%;
+    /* opacity: 0; */
+    display: none;
+    padding: 62px;
+}
+
+.add_icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

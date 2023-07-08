@@ -10,7 +10,11 @@ export default function Button({
   return (
     <div className={styles.container}>
       <button
-        onClick={onClick}
+        // onClick={onClick}
+        onClick={(e) => {
+          console.log('Button clicked');
+          if(onClick) onClick(e);
+        }}
         className={className}
         disabled={disabled}
         type={type}

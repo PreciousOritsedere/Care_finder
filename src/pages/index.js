@@ -10,8 +10,14 @@ import Pry_HealthCare from "../../public/assets/home/primary healthcare icon.svg
 import Drugs_icon from "../../public/assets/home/drugs.svg";
 import Right_arrow from "../../public/assets/home/right arrow.svg";
 import Dentist from "../../public/assets/home/dentist.svg";
+import { useFormData } from "@/context/FormData/FormDataContext";
+
 
 export default function Home() {
+  const { clearFormData } = useFormData();
+  
+ 
+
   return (
     <Layout>
       <main className={styles.main}>
@@ -23,6 +29,8 @@ export default function Home() {
             Experience the peace of mind that comes from knowing that medical
             help is just a <span>click</span> away.
           </p>
+          <button onClick={clearFormData}>Clear Form Data</button>
+
           <SearchBar />
         </section>
 

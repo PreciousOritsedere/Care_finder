@@ -14,6 +14,11 @@ export const FormDataProvider = ({ children }) => {
       setFormData(storedFormData);
     }
   }, []);
+  const clearFormData = () => {
+    setFormData({});
+    localStorage.removeItem("formData"); // Clear from localStorage
+  };
+  
 
   const updateFormData = (newData) => {
     setFormData((prevState) => {
@@ -39,6 +44,7 @@ export const FormDataProvider = ({ children }) => {
         isSignupOneCompleted,
         imageURL,
         setImageURL,
+        clearFormData,
       }}
     >
       {children}
