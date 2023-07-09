@@ -1,0 +1,237 @@
+.container {
+  padding: 12px 16px 166px 16px;
+}
+
+.cover_photo {
+  position: relative;
+  max-width: 1443px;
+  width: 100%;
+  height: 180px;
+}
+
+.cover_photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uploadPrompt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #edf9fc;
+}
+
+.cam_icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.profile_logo {
+  position: absolute;
+  top: 80%;
+  left: 10px;
+  width: 92px;
+  height: 86px;
+  border-radius: 3px;
+}
+
+.profile_logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.profile_info {
+  margin-top: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.info_first_sect {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile_name_cont {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.profile_name {
+  /* display: flex;
+  flex-direction: column;
+  gap: 6px; */
+  color: #edf9fc;
+  font-size: 14px;
+}
+
+.profile_name h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.btns_cont {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btns_cont button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background-color: #fbff2b26;
+  color: #edf9fc;
+  font-size: 12px;
+  font-weight: 500;
+  border: none;
+  border-radius: 3px;
+}
+
+.descriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  color: #edf9fc;
+}
+
+.descriptions p {
+  max-width: 702px;
+  width: 100%;
+  padding: 16px 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.info_sec_sect {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.info_sec_sect h2 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #edf9fc;
+}
+
+.gallery_cont {
+  max-width: 984px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.hospital_image {
+  max-width: 362px;
+  width: 100%;
+  height: 309px;
+}
+
+.hospital_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.share_button_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.share_dropdown {
+  position: absolute;
+  top: 120%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s, transform 1s;
+}
+
+.share_dropdown.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 32px 128px 232px 128px;
+  }
+
+  .cover_photo {
+    height: 386px;
+  }
+
+  .cover_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .uploadPrompt {
+    font-size: 16px;
+  }
+
+  .profile_logo {
+    width: 162px;
+    height: 152px;
+  }
+
+  .profile_info {
+    margin-top: 110px;
+  }
+
+  .info_first_sect {
+    gap: 28px;
+  }
+
+  .profile_name {
+    font-size: 24px;
+  }
+
+  .profile_name h1 {
+    font-size: 32px;
+  }
+
+  .btns_cont {
+    gap: 16px;
+  }
+
+  .btns_cont button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .descriptions {
+    font-size: 20px;
+  }
+
+  .descriptions p {
+    font-size: 18px;
+  }
+
+  .info_sec_sect {
+    gap: 28px;
+  }
+
+  .info_sec_sect h2 {
+    font-size: 20px;
+  }
+}

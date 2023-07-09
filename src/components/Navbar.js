@@ -49,7 +49,7 @@ function Navbar() {
           <Link href="/health_center/signup_one">
             <p>I have an health care </p>
           </Link>
-          <button>Sign up</button>
+          <button>Sign in</button>
         </div>
       </div>
 
