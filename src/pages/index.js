@@ -29,7 +29,7 @@ export default function Home() {
             Experience the peace of mind that comes from knowing that medical
             help is just a <span>click</span> away.
           </p>
-          <button onClick={clearFormData}>Clear Form Data</button>
+          {/* <button onClick={clearFormData}>Clear Form Data</button> */}
 
           <SearchBar />
         </section>

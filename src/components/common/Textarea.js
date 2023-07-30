@@ -7,15 +7,13 @@ const Textarea = ({ value, onChange, placeholder, name }) => {
       name={name}
       value={value}
       placeholder={placeholder}
-      // type={type}
-      // onChange={onChange}
       onChange={(e) => {
         console.log("onChange triggered");
         if (onChange) {
           onChange(e);
         }
       }}
-      rows={4} // Adjust the number of rows as needed
+      rows={4}
     />
   );
 };
