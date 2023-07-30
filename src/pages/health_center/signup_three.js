@@ -25,7 +25,8 @@ export default function Signup_three() {
 
       toast.success("Signup successful!");
       console.log("Navigating to /profile");
-      router.push("/profile");
+      router.push(`/profile/${docRef.id}`);
+
     } catch (error) {
       console.error("Error writing document: ", error);
       toast.error("signup failed, please try again later");
